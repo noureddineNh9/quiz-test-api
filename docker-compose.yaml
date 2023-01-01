@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+   sellioly.api:
+      build: .
+      ports:
+         - "5000:5000"
+      volumes:
+         - ./src:/app/src
+   npm:
+      image: node:16.17.0-alpine
+      working_dir: /app
+      entrypoint: ["npm"]
+      volumes:
+         - ./:/app
