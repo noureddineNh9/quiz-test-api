@@ -1,6 +1,6 @@
 version: "3.8"
 services:
-   sellioly.api:
+   quiz.api:
       build: .
       ports:
          - "5000:5000"
