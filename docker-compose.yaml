@@ -1,14 +1,15 @@
-version: "3.8"
 services:
-   quiz.api:
-      build: .
-      ports:
-         - "5000:5000"
-      volumes:
-         - ./src:/app/src
-   npm:
-      image: node:16.17.0-alpine
-      working_dir: /app
-      entrypoint: ["npm"]
-      volumes:
-         - ./:/app
+  quiz.api:
+    container_name: quiz-test.api
+    build: .
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.quiz-test-api.rule=Host(`quiz-test-api.nh9.dev`)"
+      - "traefik.http.routers.quiz-test-api.entrypoints=web"
+    networks:
+      - web
+
+networks:
+  web:
+    external:
+      name: traefik-net
