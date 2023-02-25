@@ -1,5 +1,5 @@
 services:
-  quiz.api:
+  api:
     container_name: quiz-test.api
     build: .
     environment:
