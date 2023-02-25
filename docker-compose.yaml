@@ -2,6 +2,8 @@ services:
   quiz.api:
     container_name: quiz-test.api
     build: .
+    environment:
+      - PORT=80
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.quiz-test-api.rule=Host(`quiz-test-api.nh9.dev`)"
